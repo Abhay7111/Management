@@ -1,5 +1,9 @@
 @import "tailwindcss";
 html{
-     background-color: #FFFFFF;
+     background-color: #d4d4d8;
      font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar{
+     display: none;
 }
