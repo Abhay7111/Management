@@ -6,12 +6,13 @@ import Home from './Pages/Home.jsx'
 import Dashboard from './Pages/Dashboard.jsx';
 import Error from './Components/Error.jsx';
 import Profile from './Components/Profile.jsx';
+import Spreadsheet from './Components/Spreadsheet.jsx';
 
 const routes = createBrowserRouter([
   {path:'/', element:<Home/>, children:[
     {path:'/', element:'ghg'},
     {path:'dashboard', element:<Dashboard/>, children:[
-      {path:'spreadsheet', element:'spreadsheet'},
+      {path:'spreadsheet', element:<Spreadsheet/>},
       {path:'*', element:<Error/>},
     ]},
     {path:'profile', element:<Profile/>},

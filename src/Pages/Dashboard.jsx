@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Blog } from '../Data/Blog';
 import { NavLink, Outlet } from 'react-router-dom';
+import Outletcm from '../Components/Outletcm';
+import * as motion from "motion/react-client"
 
 function Dashboard() {
-    const { BlogData, Loading, Error } = Blog();
     const [Tagsearchof, setTagsearchof] = useState(null);
-    
-    if (Loading) {return <div className='w-full h-full p-2'>Loading...</div>;}
-
-    if (Error) {return <div className='w-full h-full p-2'>Error: {Error.message}</div>;}
 
     return (
-        <div className='w-full h-full pt-2 flex flex-col gap-2'>
+        <div className='w-full h-full flex flex-col gap-2'>
             <div className='w-full flex items-center justify-between'>
                 <div className='w-fit h-10 bg-zinc-300 rounded-lg border-[2px] border-zinc-300 flex items-center justify-between gap-[2px]'>
                     <NavLink to={`spreadsheet`} className={ ({isActive}) => `w-fit h-full ${isActive ? 'bg-white text-blue-500 font-medium' : ''} rounded-md flex items-center justify-center gap-2 text-sm px-2`}><i className="ri-table-3"></i>Spreadsheet</NavLink>
@@ -37,8 +32,8 @@ function Dashboard() {
                     <div className={`w-10 h-10 border border-zinc-300 bg-white hover:bg-zinc-200 transition-all rounded-md flex items-center justify-center gap-1 cursor-pointer`}><i class="ri-more-line font-bold"></i></div>
                 </div>
             </div>
-            <div className='w-full h-full bg-white rounded-md p-1'>
-                <Outlet/>
+            <div className='w-full h-full bg-white rounded-md p-1 overflow-scroll '>
+                <Outletcm/>
             </div>
         </div>
     );
