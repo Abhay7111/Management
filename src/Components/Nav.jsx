@@ -38,6 +38,7 @@ function Nav() {
           </div>
           <div className='w-full h-fit flex flex-col items-start gap-1.5'>
                <NavLink 
+                    title='dashboard' 
                     to="/dashboard" 
                     className={({ isActive }) => 
                          ` w-full flex items-center h-10 rounded-md border-zinc-400
@@ -51,6 +52,7 @@ function Nav() {
                     </span>
                </NavLink>
                <NavLink 
+                    title='inbox' 
                     to="/inbox" 
                     className={({ isActive }) => 
                          ` w-full flex items-center h-10 rounded-md border-zinc-400
@@ -64,6 +66,7 @@ function Nav() {
                     </span>
                </NavLink>
                <NavLink 
+                    title='teams' 
                     to="/teams" 
                     className={({ isActive }) => 
                          ` w-full flex items-center h-10 rounded-md border-zinc-400
@@ -77,6 +80,7 @@ function Nav() {
                     </span>
                </NavLink>
                <NavLink 
+                    title='assigned to me' 
                     to="/assigned to me" 
                     className={({ isActive }) => 
                          ` w-full flex items-center h-10 rounded-md border-zinc-400
@@ -90,6 +94,7 @@ function Nav() {
                     </span>
                </NavLink>
                <NavLink 
+                    title='created by me' 
                     to="/created by me" 
                     className={({ isActive }) => 
                          ` w-full flex items-center h-10 rounded-md border-zinc-400
@@ -167,7 +172,8 @@ function Nav() {
           </div>
           <div className={`${wid ? 'w-full rounded-md border' : 'w-full rounded-full'}  border-zinc-400 h-[70px] transition-all bg-zinc-300 overflow-hidden flex items-center justify-center`}>
                {!wid && BlogData.slice(0,1).map((items, index) => (
-                    <NavLink to={`/profile`} className={`w-full h-full`}>
+                    <NavLink 
+                     to={`/profile`} className={`w-full h-full`}>
                          <img 
                          key={index}
                          src={items.image} 
@@ -179,7 +185,8 @@ function Nav() {
                {wid && <div className='w-full h-full flex items-center p-1'>
                     {BlogData.slice(0,1).map((items, index) => (
                          <div className='w-fit h-fit flex items-center justify-start gap-2'>
-                              <NavLink to={`/profile`} className={`flex items-center text-xs h-full gap-2`}>
+                              <NavLink 
+                               to={`/profile`} className={`flex items-center text-xs h-full gap-2`}>
                               <img 
                               key={index}
                               src={items.image} 
@@ -188,7 +195,8 @@ function Nav() {
                               />
                                    <div className='flex flex-col text-xs h-full'>
                                         <span className='font-medium text-[15px]'>{items.author}</span>
-                                        <NavLink to={items.github} className='line-clamp-1 text-[11px] hover:text-blue-800'>{items.github}</NavLink>
+                                        <NavLink 
+                                         to={items.github} className='line-clamp-1 text-[11px] hover:text-blue-800'>{items.github}</NavLink>
                                    </div>
                               </NavLink>
                          </div>

@@ -27,13 +27,28 @@ function Spreadsheet() {
 
       {/* Main Content Grid */}
       <div className='w-full h-full overflow-auto'>
-        <div className='w-full h-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4'>
-          {BlogData.map((item, index) => (
-            <div key={index} className='w-full h-20 bg-white rounded-md border border-zinc-200 p-2 hover:shadow-sm transition-all'>
-              <h3 className='text-sm font-medium line-clamp-1'>{item.title}</h3>
-              <p className='text-xs text-zinc-500 line-clamp-2 mt-1'>{item.description}</p>
-            </div>
-          ))}
+        <div className='w-full h-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-1'>
+          <div className='w-full h-fit flex flex-col gap-1'>
+            <span>Task</span>
+            {BlogData.map((item, index) => (
+              <div key={item._id || index} className='w-full h-10 rounded-md border border-zinc-200 p-3 hover:shadow-sm transition-all'>
+                <label htmlFor={`task-${item._id || index}`} className='text-sm font-medium line-clamp-1 flex items-center gap-2'>
+                  <span>
+                    <input type="checkbox" name={`task-${item._id || index}`} id={`task-${item._id || index}`} />
+                  </span>
+                  <span className='line-clamp-1'>{item.title.split(' ').slice(0, 2).join(' ')}</span>
+                </label>
+              </div>
+            ))}
+          </div>
+          <div className='w-full h-fit flex flex-col gap-1'>
+            <span>Description</span>
+            {BlogData.map((item, index) => (
+              <div key={index} className='w-full h-10 rounded-md border border-zinc-200 p-3 hover:shadow-sm transition-all'>
+                <label htmlFor={`task-${item._id || index}`} className='text-sm font-medium line-clamp-1 flex items-center gap-2'><span className='line-clamp-1'>{item.dis}</span></label>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

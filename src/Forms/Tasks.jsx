@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
-import { Manager } from '../Data/PostManager';
+import { usePostManager } from '../Data/PostManager';
 
 function Tasks() {
-  const { createPost, loading, error } = Manager();
   const [formData, setFormData] = useState({
     name: '',
     username: '',
     email: '',
     password: '',
-    description: '', // Fixed typo from 'discription'
+    description: '',
     task: [],
     links: {
       facebook: '',
       instagram: '',
       youtube: '',
       github: '',
-      company: '' // Fixed typo from 'companey'
+      company: ''
     }
   });
+  const { createPost, isLoading, error, setError } = usePostManager();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     
-    // Handle nested objects
     if (name.includes('.')) {
       const [parent, child] = name.split('.');
       setFormData(prev => ({
@@ -35,17 +34,15 @@ function Tasks() {
       return;
     }
 
-    // Handle task array updates
     if (name.startsWith('task')) {
       const [_, index, field] = name.split('.');
-      const updatedTasks = formData.task.map((task, i) => 
+      const updatedTasks = Array.isArray(formData.task) ? formData.task.map((task, i) => 
         i === parseInt(index) ? { ...task, [field]: value } : task
-      );
+      ) : [];
       setFormData(prev => ({ ...prev, task: updatedTasks }));
       return;
     }
 
-    // Handle regular fields
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
@@ -55,32 +52,49 @@ function Tasks() {
       const postData = {
         ...formData,
         loggedInDate: new Date(),
-        task: formData.task.map(task => ({
+        task: Array.isArray(formData.task) ? formData.task.map(task => ({
           ...task,
           created: new Date(),
           startDate: new Date(),
           lastDate: new Date()
+        })) : []
+      };
+      
+      // Convert dates to ISO strings
+      const formattedPostData = {
+        ...postData,
+        loggedInDate: postData.loggedInDate.toISOString(),
+        task: postData.task.map(task => ({
+          ...task,
+          created: task.created.toISOString(),
+          startDate: task.startDate.toISOString(),
+          lastDate: task.lastDate.toISOString()
         }))
       };
-      await createPost(postData);
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        username: '',
-        email: '',
-        password: '',
-        description: '',
-        task: [],
-        links: {
-          facebook: '',
-          instagram: '',
-          youtube: '',
-          github: '',
-          company: ''
-        }
-      });
+
+      const response = await createPost(formattedPostData);
+      
+      if (response) {
+        setFormData({
+          name: '',
+          username: '',
+          email: '',
+          password: '',
+          description: '',
+          task: [],
+          links: {
+            facebook: '',
+            instagram: '',
+            youtube: '',
+            github: '',
+            company: ''
+          }
+        });
+        setError(null);
+      }
     } catch (err) {
       console.error('Error creating post:', err);
+      setError(err.message || 'Failed to submit form');
     }
   };
 
@@ -88,10 +102,10 @@ function Tasks() {
     setFormData(prev => ({
       ...prev,
       task: [
-        ...prev.task,
+        ...(Array.isArray(prev.task) ? prev.task : []),
         {
           title: '',
-          description: '', // Fixed typo
+          description: '',
           category: '',
           created: new Date(),
           startDate: new Date(),
@@ -104,7 +118,6 @@ function Tasks() {
   return (
     <div className="max-w-2xl mx-auto p-4">
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Basic Info */}
         <div className="grid grid-cols-2 gap-4">
           <input
             type="text"
@@ -113,7 +126,6 @@ function Tasks() {
             onChange={handleChange}
             placeholder="Name"
             className="p-2 border rounded"
-            required
           />
           <input
             type="text"
@@ -122,11 +134,9 @@ function Tasks() {
             onChange={handleChange}
             placeholder="Username"
             className="p-2 border rounded"
-            required
           />
         </div>
         
-        {/* Contact Info */}
         <input
           type="email"
           name="email"
@@ -134,7 +144,6 @@ function Tasks() {
           onChange={handleChange}
           placeholder="Email"
           className="w-full p-2 border rounded"
-          required
         />
         <input
           type="password"
@@ -143,10 +152,8 @@ function Tasks() {
           onChange={handleChange}
           placeholder="Password"
           className="w-full p-2 border rounded"
-          required
         />
         
-        {/* Description */}
         <textarea
           name="description"
           value={formData.description}
@@ -154,12 +161,10 @@ function Tasks() {
           placeholder="Description"
           className="w-full p-2 border rounded"
           rows="3"
-          required
         />
         
-        {/* Task Section */}
         <div className="space-y-4">
-          {formData.task.map((task, index) => (
+          {Array.isArray(formData.task) && formData.task.map((task, index) => (
             <div key={index} className="space-y-2 border p-4 rounded">
               <input
                 type="text"
@@ -168,7 +173,6 @@ function Tasks() {
                 onChange={handleChange}
                 placeholder="Task Title"
                 className="w-full p-2 border rounded"
-                required
               />
               <textarea
                 name={`task.${index}.description`}
@@ -177,7 +181,6 @@ function Tasks() {
                 placeholder="Task Description"
                 className="w-full p-2 border rounded"
                 rows="2"
-                required
               />
               <input
                 type="text"
@@ -186,7 +189,6 @@ function Tasks() {
                 onChange={handleChange}
                 placeholder="Task Category"
                 className="w-full p-2 border rounded"
-                required
               />
             </div>
           ))}
@@ -199,7 +201,6 @@ function Tasks() {
           </button>
         </div>
         
-        {/* Social Links */}
         <div className="grid grid-cols-2 gap-4">
           {Object.keys(formData.links).map(platform => (
             <input
@@ -216,13 +217,13 @@ function Tasks() {
       
         <button
           type="submit"
-          disabled={loading}
+          disabled={isLoading}
           className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-blue-300"
         >
-          {loading ? 'Submitting...' : 'Create Post'}
+          {isLoading ? 'Submitting...' : 'Create Post'}
         </button>
       
-        {error && <div className="text-red-500">Error: {error.message}</div>}
+        {error && <div className="text-red-500">Error: {error}</div>}
       </form>
     </div>
   );
