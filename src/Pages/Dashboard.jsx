@@ -10,7 +10,7 @@ function Dashboard() {
         <div className='w-full h-full flex flex-col gap-2'>
             <div className='w-full flex items-center justify-between'>
                 <div className='w-fit h-10 bg-zinc-300 rounded-lg border-[2px] border-zinc-300 flex items-center justify-between gap-[2px]'>
-                    <NavLink to={`spreadsheet`} className={ ({isActive}) => `w-fit h-full ${isActive ? 'bg-white text-blue-500 font-medium' : ''} rounded-md flex items-center justify-center gap-2 text-sm px-2`}><i className="ri-table-3"></i>Spreadsheet</NavLink>
+                    <NavLink to={`students`} className={ ({isActive}) => `w-fit h-full ${isActive ? 'bg-white text-blue-500 font-medium' : ''} rounded-md flex items-center justify-center gap-2 text-sm px-2`}><i className="ri-graduation-cap-line"></i>Students</NavLink>
                     <NavLink to={`timeline`} className={ ({isActive}) => `w-fit h-full ${isActive ? 'bg-white text-blue-500 font-medium' : ''} rounded-md flex items-center justify-center gap-2 text-sm px-2`}><i className="ri-menu-4-line"></i>Timeline</NavLink>
                     <NavLink to={`calender`} className={ ({isActive}) => `w-fit h-full ${isActive ? 'bg-white text-blue-500 font-medium' : ''} rounded-md flex items-center justify-center gap-2 text-sm px-2`}><i className="ri-calendar-2-line"></i>Calender</NavLink>
                     <NavLink to={`Board`} className={ ({isActive}) => `w-fit h-full ${isActive ? 'bg-white text-blue-500 font-medium' : ''} rounded-md flex items-center justify-center gap-2 text-sm px-2`}><i className="ri-pause-line"></i>Board</NavLink>

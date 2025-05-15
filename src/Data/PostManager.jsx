@@ -1,27 +1,39 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 const usePostManager = () => {
-    const API_URL = 'http://localhost:1000/managerpost';
+    const API_URL = 'https://server-01-v2cx.onrender.com/managerpost';
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const createPost = async (postData) => {
+    const validatePostData = useCallback((postData) => {
+        if (!postData || typeof postData !== 'object') {
+            throw new Error('Invalid post data');
+        }
+
+        const requiredFields = ['name', 'email', 'description'];
+        const missingFields = requiredFields.filter(field => !postData[field]);
+        if (missingFields.length > 0) {
+            throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
+        }
+    }, []);
+
+    const validateResponse = useCallback((response) => {
+        if (!response.data) {
+            throw new Error('No data received from server');
+        }
+
+        if (!response.data.success) {
+            throw new Error(response.data.message || 'Request failed');
+        }
+    }, []);
+
+    const createPost = useCallback(async (postData) => {
         setIsLoading(true);
         setError(null);
         
         try {
-            // Validate postData before sending
-            if (!postData || typeof postData !== 'object') {
-                throw new Error('Invalid post data');
-            }
-
-            // Check for required fields
-            const requiredFields = ['name', 'email', 'description'];
-            const missingFields = requiredFields.filter(field => !postData[field]);
-            if (missingFields.length > 0) {
-                throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
-            }
+            validatePostData(postData);
 
             const response = await axios.post(API_URL, postData, {
                 headers: {
@@ -29,18 +41,10 @@ const usePostManager = () => {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
                 withCredentials: true,
-                timeout: 10000 // Add timeout to prevent hanging
+                timeout: 10000
             });
             
-            if (!response.data) {
-                throw new Error('No data received from server');
-            }
-
-            // Validate response structure
-            if (!response.data.success) {
-                throw new Error(response.data.message || 'Request failed');
-            }
-            
+            validateResponse(response);
             return response.data;
         } catch (err) {
             console.error('API Error:', err);
@@ -52,7 +56,7 @@ const usePostManager = () => {
         } finally {
             setIsLoading(false);
         }
-    };
+    }, [validatePostData, validateResponse]);
 
     return { 
         createPost, 

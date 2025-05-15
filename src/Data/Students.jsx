@@ -1,18 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-const Blog = () => {
-    const Api = 'https://server-01-v2cx.onrender.com/getmainblog'
-    const [BlogData, setBlogData] = useState([]);
+const Students = () => {
+    const Api = 'https://server-01-v2cx.onrender.com/getunicity'
+    const [Student, setStudent] = useState([]);
     const [Loading, setLoading] = useState(true);
     const [Error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchBlogdata = async () => {
+        const fetchStudent = async () => {
             try {
                 const response = await axios.get(Api);
                 if (response.data?.length > 0) {
-                    setBlogData(response.data);
+                    setStudent(response.data);
                 }
             } catch (err) {
                 setError(err);
@@ -20,10 +20,10 @@ const Blog = () => {
                 setLoading(false);
             }
         };
-        fetchBlogdata();
+        fetchStudent();
     }, []);
 
-    return { BlogData, Loading, Error };
+    return { Student, Loading, Error };
 }
 
-export { Blog }
+export { Students }
