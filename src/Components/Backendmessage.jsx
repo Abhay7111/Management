@@ -13,7 +13,7 @@ function Backendmessage() {
          <p className='text-sm text-gray-600'>We appreciate your patience and understanding.</p>
        </div>
        <button className='mt-4 px-6 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors text-sm font-medium'>
-         Try Again
+         Try After some time
        </button>
      </div>
   )

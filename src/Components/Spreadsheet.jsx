@@ -66,7 +66,7 @@ function Spreadsheet() {
 
   return (
     <div className='w-full min-h-40 maxh-[80vh] flex flex-col items-start justify-start gap-2 relative'>
-      <div className='flex items-center justify-start gap-3 text-sm w-full'>
+      <div className='flex items-center h-20 justify-start gap-1 text-sm w-full'>
         <div className='flex items-center gap-1 text-red-700 bg-red-200 px-2 py-1 border border-red-300 rounded-md'>
           <i className='ri-loader-4-line animate-spin'></i>
           <p>In progress</p>
@@ -74,16 +74,24 @@ function Spreadsheet() {
         <div className='flex items-center justify-center cursor-pointer hover:bg-gray-100 p-1 rounded'>
           <i className='ri-more-line'></i>
         </div>
-        <div className='size-7 rounded-md border border-zinc-300 flex items-center justify-center bg-zinc-200'>
-          2
+        <div title='Number of collages' className='size-7 rounded-md border border-zinc-300 flex items-center justify-center bg-zinc-200'>
+          {Student.length}
         </div>
         <button 
           onClick={handleDownloadExcel}
-          className='ml-auto bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600 flex items-center gap-1'
+          className='size-7 cursor-pointer bg-green-500 text-white flex items-center justify-center rounded-md hover:bg-green-600'
         >
-          <i className='ri-download-line'></i>
-          Download Excel
+          <i className='ri-file-excel-line'></i>
         </button>
+        <div className='w-fit flex items-center justify-start gap-2'>
+        <button 
+          onClick={() => setManagerForm(prev => !prev)} 
+          className='size-7 rounded-md border hover:bg-zinc-400 border-zinc-300 flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors'
+          aria-label="Add new item"
+        >
+          <i className='ri-add-line text-xl font-medium'></i>
+        </button>
+      </div>
       </div>
 
       <div className='w-full h-full overflow-auto relative flex items-start justify-center gap-2'>
@@ -122,7 +130,7 @@ function Spreadsheet() {
                 </div>
                 <div className='flex flex-col gap-0.5'>
                   <span className='text-xs font-medium text-gray-500'>College</span>
-                  <p className='text-sm text-gray-800'>{selectedStudent.collagename}</p>
+                  <p className='text-sm text-gray-800'>{selectedStudent.collagename}, {selectedStudent.collageaddress}</p>
                 </div>
                 <div className='flex flex-col gap-0.5'>
                   <span className='text-xs font-medium text-gray-500'>Phone</span>
@@ -132,18 +140,16 @@ function Spreadsheet() {
                   <span className='text-xs font-medium text-gray-500'>Email</span>
                   <p className='text-sm text-gray-800 break-all'>{selectedStudent.students.gmail}</p>
                 </div>
-                <div className='flex flexocol gap-0.5'>
+                <div className='flex flex-col gap-0.5'>
                   <span className='text-xs font-medium text-gray-500'>Rank</span>
                   <p className='text-sm text-gray-800'>{selectedStudent.students.rank}</p>
                 </div>
-                <div className='flex flex-col gap-0.5'>
+                <div className='flex flex宪 gap-0.5'>
                   <span className='text-xs font-medium text-gray-500'>Marks</span>
                   <p className='text-sm text-gray-800'>{selectedStudent.students.marks}</p>
                 </div>
               </div>
-              {pdfError && (
-                <div className="text-red-500 text-sm mt-2">{pdfError}</div>
-              )}
+              {pdfError && <div className="text-red-500 text-sm mt-2">{pdfError}</div>}
               <button 
                 onClick={handlePrint}
                 disabled={printLoading}
@@ -160,15 +166,7 @@ function Spreadsheet() {
         </div>
       </div>
 
-      <div className='w-full flex items-center justify-start gap-2 mt-4'>
-        <button 
-          onClick={() => setManagerForm(prev => !prev)} 
-          className='w-10 h-10 rounded-md border border-zinc-300 flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors'
-          aria-label="Add new item"
-        >
-          <i className='ri-add-line text-xl font-medium'></i>
-        </button>
-      </div>
+      
 
       {managerForm && (
         <div className='w-full h-fit rounded-2xl bg-white border border-zinc-400 top-0 left-0 absolute'>
