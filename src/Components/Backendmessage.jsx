@@ -11,6 +11,7 @@ function Backendmessage() {
          <p className='text-sm text-gray-600'>Our backend services are currently experiencing issues.</p>
          <p className='text-sm text-gray-600'>Our team is working diligently to restore functionality.</p>
          <p className='text-sm text-gray-600'>We appreciate your patience and understanding.</p>
+         <p className='text-sm text-gray-600'>We are still trying to fix this.</p>
        </div>
        <button className='mt-4 px-6 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors text-sm font-medium'>
          Try After some time
