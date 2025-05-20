@@ -14,7 +14,7 @@ function Home() {
     if (Loading) {
       const timer = setTimeout(() => {
         setShowLongLoadingMessage(true);
-      }, 10000); // Reduced to 10 seconds for faster feedback
+      }, 20000); // Reduced to 10 seconds for faster feedback
       
       return () => clearTimeout(timer);
     }
