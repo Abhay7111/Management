@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Students } from '../Data/Students';
 import Tasks from '../Forms/Tasks';
+import Loader from './Loading';
 import * as XLSX from 'xlsx';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -72,13 +73,20 @@ function Spreadsheet() {
     }
   };
 
-  if (Loading) return <div className="loading-spinner">Loading...</div>;
+  if (Loading) return <div className="loading-spinner w-full h-full flex items-center justify-center"><Loader/></div>;
   if (Error) return <div className="error-message">Error: {Error.message}</div>;
 
   const handleStudentClick = (student) => {
     setSelectedStudent(student);
     setOpenProfile(true);
   };
+
+  const DetailItem = ({ label, value, breakAll }) => (
+    <div className="flex flex-col gap-1">
+      <span className="text-sm text-gray-500">{label}</span>
+      <span className={`text-sm font-medium ${breakAll ? 'break-all' : ''}`}>{value}</span>
+    </div>
+  );
 
   return (
     <div className='w-full min-h-40 max-h-[80vh] flex flex-col items-start justify-start gap-2 relative'>
@@ -139,18 +147,18 @@ function Spreadsheet() {
                 <h3 className='font-semibold mb-3 text-lg border-b border-zinc-300 pb-2 text-gray-700 flex items-center justify-between'>
                   <span>Student Details</span>
                   <button 
-                    onClick={() => setopenprofile(prev => !prev)}
+                    onClick={() => setOpenProfile(prev => !prev)}
                     className='size-5.5 rounded border border-zinc-300 hover:bg-zinc-300 flex items-center justify-center cursor-pointer'
                     aria-label="Toggle profile details"
                   >
-                    <i className={`${openprofile ? 'rotate-180' : ''} transition-all duration-500 ri-arrow-down-s-fill`}></i>
+                    <i className={`${openProfile ? '' : 'rotate-180'} transition-all duration-500 ri-arrow-down-s-fill`}></i>
                   </button>
                 </h3>
                 
                 <div className='space-y-2.5'>
                   <DetailItem label="Name" value={`${selectedStudent.students.name.firstname} ${selectedStudent.students.name.lastname}`} />
                   
-                  {openprofile && (
+                  {!openProfile && (
                     <>
                       <DetailItem label="Father's name" value={selectedStudent.students.fathername} />
                       <DetailItem label="Mother's name" value={selectedStudent.students.mothername} />

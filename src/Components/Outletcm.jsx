@@ -1,12 +1,13 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { Blog } from '../Data/Blog'
+import { Blog } from '../Data/Blog';
+import Loader from './Loading';
 import { div } from 'motion/react-client';
 
 function Outletcm() {
      const { Loading, Error } = Blog();
     
-    if (Loading) {return <div className='w-full h-full p-2 flex items-center justify-center'>Loading...</div>;}
+    if (Loading) {return <div className='w-full h-full p-2 flex items-center justify-center'><Loader/></div>;}
     if (Error) {return <div className='w-full h-full p-2 flex items-center justify-center'>Error: {Error.message}</div>;}
     
 
