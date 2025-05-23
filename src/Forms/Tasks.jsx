@@ -1,19 +1,21 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import StartLoading from '../Components/StartLoading';
+import Uploading from "../Components/Uploading";
 
 function CollegeForm() {
   const [collegeName, setCollegeName] = useState('');
-  const [collegeAddress, setCollegeAddress] = useState(['']);
+  const [collegeAddress, setCollegeAddress] = useState([]);
   const [student, setStudent] = useState({
     name: { firstname: '', lastname: '' },
     gender: '',
     fathername: '',
     mothername: '',
-    marks: [''],
+    marks: [],
     rank: 0,
     phone: 0,
-    gmail: ''
+    gmail: '',
+    created: new Date()
   });
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
@@ -58,22 +60,27 @@ function CollegeForm() {
       const response = await axios.post('https://server-01-v2cx.onrender.com/postunicity', {
         collagename: collegeName,
         collageaddress: collegeAddress,
-        students: student
+        created: new Date(),
+        students: {
+          ...student,
+          created: new Date()
+        }
       });
       console.log(response.data);
       setSuccessMessage('Form submitted successfully!');
       // Reset form after successful submission
       setCollegeName('');
-      setCollegeAddress(['']);
+      setCollegeAddress([]);
       setStudent({
         name: { firstname: '', lastname: '' },
         gender: '',
         fathername: '',
         mothername: '',
-        marks: [''],
+        marks: [],
         rank: 0,
         phone: 0,
-        gmail: ''
+        gmail: '',
+        created: new Date()
       });
     } catch (error) {
       console.error(error);
@@ -86,12 +93,32 @@ function CollegeForm() {
   return (
     <div className={`w-full max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-lg ${loading ? 'opacity-60 pointer-events-none' : ''}`}>
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Student Registration Form</h2>
-      {showRequiredMessage && <p className="text-sm text-red-500 mb-4">* All fields are required</p>}
       
-      {loading && <StartLoading />}
-      {error && <div className="col-span-full text-red-500 mb-4 p-3 bg-red-50 rounded-lg">{error}</div>}
-      {successMessage && <div className="col-span-full text-green-500 mb-4 p-3 bg-green-50 rounded-lg">{successMessage}</div>}
+      {/* Validation Messages */}
+      {showRequiredMessage && (
+        <p className="text-sm text-red-500 mb-4">* All fields are required</p>
+      )}
       
+      {/* Loading State */}
+      {loading && (
+        <div className="mb-4">
+          <Uploading />
+        </div>
+      )}
+      
+      {/* Error Message */}
+      {error && (
+        <div className="col-span-full text-red-500 mb-4 p-3 bg-red-50 rounded-lg">
+          {error}
+        </div>
+      )}
+      
+      {/* Success Message */}
+      {successMessage && (
+        <div className="col-span-full text-green-500 mb-4 p-3 bg-green-50 rounded-lg">
+          {successMessage}
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* College Information */}
         <div className="space-y-4">
@@ -267,18 +294,21 @@ function CollegeForm() {
                 onChange={(e) => setStudent({...student, gmail: e.target.value})}
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                 placeholder="Enter email address"
+                required
               />
             </div>
           </div>
         </div>
       </div>
-
       <div className="mt-6 flex justify-end">
         <button
           onClick={handleSubmit}
-          className="px-6 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+          disabled={loading}
+          className={`px-6 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all ${
+            loading ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
         >
-          Submit
+          {loading ? 'Submitting...' : 'Submit'}
         </button>
       </div>
     </div>

@@ -7,12 +7,15 @@ import Dashboard from './Pages/Dashboard.jsx';
 import Error from './Components/Error.jsx';
 import Profile from './Components/Profile.jsx';
 import Spreadsheet from './Components/Spreadsheet.jsx';
+import EditStudents from './Forms/EditStudents.jsx';
 
 const routes = createBrowserRouter([
   {path:'/', element:<Home/>, children:[
     {path:'/', element:'ghg'},
     {path:'dashboard', element:<Dashboard/>, children:[
-      {path:'students', element:<Spreadsheet/>},
+      {path:'students', element:<Spreadsheet/>, children:[
+        {path:'edit', element:<EditStudents/>}
+      ]},
       {path:'*', element:<Error/>},
     ]},
     {path:'profile', element:<Profile/>},
