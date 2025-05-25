@@ -50,7 +50,7 @@ function Home() {
       <Topnav/>
       <div className='w-full h-full flex items-center justify-center gap-0.5'>
         <Nav/>
-        <div className='w-full h-full bg-white p-2 transition-all duration-300 rounded-xl overflow-hidden'>
+        <div className='w-full h-[93vh] bg-white p-2 transition-all duration-300 rounded-xl overflow-hidden'>
           <Outlet/>
         </div>
       </div>

@@ -96,7 +96,7 @@ function Spreadsheet() {
   return (
     <div className='w-full min-h-40 max-h-[100vh] flex flex-col items-start justify-start gap-2 relative'>
       {openOutlet && 
-        <div className='absolute top-0 left-0 w-full h-full z-50 border border-zinc-400 backdrop-blur-sm bg-zinc-50'>
+        <div className='fixed top-0 left-0 w-full h-dvh z-50 border border-zinc-400 backdrop-blur-sm bg-zinc-50'>
           <div className='w-full h-full relative flex flex-col items-center gap-2 p-2'>
             <div className='w-full flex items-center justify-end'><NavLink to={`./`} onClick={()=>setOpenOutlet(false)} className='size-8 rounded-md flex items-center justify-center text-sm cursor-pointer border border-zinc-400 bg-zinc-100 hover:bg-zinc-300 transition-all ri-close-line font-medium'></NavLink></div>
             <div className='w-full h-full flex items-center justify-center'><Outlet/></div>
@@ -173,7 +173,7 @@ function Spreadsheet() {
                 </h3>
                 
                 <div className='space-y-2.5'>
-                  <DetailItem label="Name" value={`${selectedStudent.students.name.firstname} ${selectedStudent.students.name.lastname}`} />
+                  <DetailItem label="Name" value={<NavLink to={`./${selectedStudent.students.name.firstname}-${selectedStudent.students.name.lastname}`}>{selectedStudent.students.name.firstname} {selectedStudent.students.name.lastname}</NavLink>} />
                   
                   {!openProfile && (
                     <>
@@ -184,7 +184,7 @@ function Spreadsheet() {
                   
                   <DetailItem label="College" value={`${selectedStudent.collagename}, ${selectedStudent.collageaddress}`} />
                   <DetailItem label="Phone" value={<NavLink to={`tel:${selectedStudent.students.phone}`}>+91 {selectedStudent.students.phone}</NavLink>} />
-                  <DetailItem label="Email" value={selectedStudent.students.gmail} breakAll />
+                  <DetailItem label="Email" value={<NavLink to={`mailto:${selectedStudent.students.gmail}`}>{selectedStudent.students.gmail}</NavLink>} breakAll />
                   
                   <div className='w-full h-fit flex items-center justify-start gap-2.5'>
                     <DetailItem label="Rank" value={selectedStudent.students.rank} />
@@ -202,11 +202,11 @@ function Spreadsheet() {
       </div>
 
       {managerForm && (
-        <div className='w-full h-fit rounded-2xl bg-white border border-zinc-400 top-0 left-0 absolute'>
+        <div className='w-full h-full bg-white border border-zinc-400 top-0 left-0 absolute'>
           <div className='w-full h-full rounded-2xl relative p-2'>
             <button 
               onClick={() => setManagerForm(false)}
-              className='size-8 rounded-md border border-zinc-400 bg-zinc-300 cursor-pointer absolute top-2 right-2 flex items-center justify-center opacity-55 hover:opacity-90'
+              className='size-8 rounded-md border transition-all border-zinc-400 bg-zinc-300 cursor-pointer absolute top-2 right-2 flex items-center justify-center opacity-55 hover:opacity-90'
               aria-label="Close form"
             >
               <i className='ri-close-line text-2xl font-medium'></i>
