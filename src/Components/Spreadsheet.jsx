@@ -161,7 +161,7 @@ function Spreadsheet() {
                 <h3 className='font-semibold mb-3 text-lg border-b border-zinc-300 pb-2 text-gray-700 flex items-center justify-between'>
                   <span>Student Details</span>
                   <span className='flex items-center gap-2'>
-                    <div className='flex items-center'><NavLink to={`edit`} onClick={()=>setOpenOutlet(prev => !prev)} className={`text-sm font-medium hover:text-blue-600 transition-all`}>Edit</NavLink></div>
+                    <div className='flex items-center'><NavLink to={`edit/${selectedStudent._id}`} onClick={()=>setOpenOutlet(prev => !prev)} className={`text-sm font-medium hover:text-blue-600 transition-all`}>Edit</NavLink></div>
                     <button 
                       onClick={() => setOpenProfile(prev => !prev)}
                       className='size-5.5 rounded border border-zinc-300 hover:bg-zinc-300 flex items-center justify-center cursor-pointer'

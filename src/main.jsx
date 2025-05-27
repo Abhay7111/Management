@@ -14,7 +14,7 @@ const routes = createBrowserRouter([
     {path:'/', element:'ghg'},
     {path:'dashboard', element:<Dashboard/>, children:[
       {path:'students', element:<Spreadsheet/>, children:[
-        {path:'edit', element:<EditStudents/>}
+        {path:'edit/:id', element:<EditStudents/>}
       ]},
       {path:'*', element:<Error/>},
     ]},
