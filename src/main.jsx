@@ -8,6 +8,7 @@ import Error from './Components/Error.jsx';
 import Profile from './Components/Profile.jsx';
 import Spreadsheet from './Components/Spreadsheet.jsx';
 import EditStudents from './Forms/EditStudents.jsx';
+import Timeline from './Components/Timeline.jsx';
 
 const routes = createBrowserRouter([
   {path:'/', element:<Home/>, children:[
@@ -16,6 +17,7 @@ const routes = createBrowserRouter([
       {path:'students', element:<Spreadsheet/>, children:[
         {path:'edit/:id', element:<EditStudents/>}
       ]},
+      {path:'timeline', element:<Timeline/>,},
       {path:'*', element:<Error/>},
     ]},
     {path:'profile', element:<Profile/>},
