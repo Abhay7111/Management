@@ -44,9 +44,9 @@ const TimelineGraphforcollage = () => {
     }
 
     return (
-        <div className="w-full h-full rounded-lg ">
+        <div className="w-full h-fit rounded-lg ">
             {graphData.length > 0 ? (
-                <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-center gap-3'>
+                <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-center gap-2'>
                     <div className='w-full h-60 rounded-xl p-2 border border-zinc-300 bg-zinc-200 hover:bg-zinc-300 transition-all duration-300 cursor-pointer'>
                         <h2 className='text-sm font-medium'>Student Count by College</h2>
                     <div className='w-full rounded-xl p-2'>
@@ -82,8 +82,8 @@ const TimelineGraphforcollage = () => {
                         </div>
                         <div>
                             <div className='w-full h-full p-2 flex items-center justify-around gap-4 rounded-md'>
-                                <span className='flex flex-col items-center justify-center'><p className='text-sm text-zinc-700'>Students</p><p className='text-3xl font-medium text-zinc-800'>{Student.length}</p></span>
                                 <span className='flex flex-col items-center justify-center'><p className='text-sm text-zinc-700'>Collages</p><p className='text-3xl font-medium text-zinc-800'>{graphData.length}</p></span>
+                                <span className='flex flex-col items-center justify-center'><p className='text-sm text-zinc-700'>Students</p><p className='text-3xl font-medium text-zinc-800'>{Student.length}</p></span>
                             </div>
                         </div>
                     </div>

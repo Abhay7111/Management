@@ -146,7 +146,7 @@ function Spreadsheet() {
               </div>
               <div className='p-2 border-b border-r border-l border-zinc-400 line-clamp-1 overflow-auto w-full'><span className='w-fit text-nowrap'>{item.collagename}</span></div>
               <div className='w-full overflow-auto p-2 border-r border-zinc-400 border-b'><span className='text-nowrap'>{item.collageaddress}</span></div>
-              <Link to={`tel:${item.students.phone}`} className='p-2 border-b border-r border-zinc-400 line-clamp-1'>+91 {item.students.phone}</Link>
+              <Link to={`tel:${item.students.phone}`} className='p-2 border-b border-r border-zinc-400 line-clamp-1 '>+91 {item.students.phone}</Link>
               <Link to={`mailto:${item.students.gmail}`} className='p-2 border-b border-r border-zinc-400 line-clamp-1 overflow-auto'><span className='w-fit text-nowrap'>{item.students.gmail}</span></Link>
               <div className=' border-b border-zinc-400 flex'><div className='w-24 p-2 border-r border-zinc-400'>{item.students.rank}</div> <div className='w-full p-2'>{item.students.marks}  </div></div>
               
@@ -154,7 +154,7 @@ function Spreadsheet() {
           ))}
         </div>
         
-        <div className='w-96 h-full sticky top-0 overflow-auto '>
+        <div className='w-0 md:w-80 h-full sticky top-0 overflow-auto '>
           <div className='sticky transition-all border border-zinc-400 p-2.5 bg-white shadow-sm'>
             {selectedStudent ? (
               <div ref={componentRef} className='w-full h-full space-y-3'>
