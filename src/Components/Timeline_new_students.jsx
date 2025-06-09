@@ -144,6 +144,86 @@ function Timeline_new_students() {
     teachername:'MR. Abhay vishwakarma',  
     image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
   },
+  {
+    title:'Web pogramming',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 87',
+    date:'12/04/2025',
+    day:'Tuesday',
+    time:'11:20 - 12:30',
+    teachername:'MR. Abhay vishwakarma',  
+    image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
+  },
+    {
+    title:'Java learning',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 67',
+    date:'11/05/2025',
+    day:'wednesday',
+    time:'10:20 - 12:10',
+    teachername:'MR. Surya gupta',  
+    image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
+  },
+    {
+    title:'Web pogramming',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 87',
+    date:'12/04/2025',
+    day:'Tuesday',
+    time:'11:20 - 12:30',
+    teachername:'MR. Abhay vishwakarma',  
+    image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
+  },
+    {
+    title:'Java learning',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 67',
+    date:'11/05/2025',
+    day:'wednesday',
+    time:'10:20 - 12:10',
+    teachername:'MR. Surya gupta',  
+    image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
+  },
+    {
+    title:'CCC',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 28',
+    date:'24/02/2025',
+    day:'Tuesday',
+    time:'11:40 - 12:50',
+    teachername:'MR. Abhay vishwakarma', 
+    image:'https://cdn.dribbble.com/users/16292774/avatars/normal/data?1684478653', 
+  },
+  {
+    title:'Web pogramming',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 87',
+    date:'12/04/2025',
+    day:'Tuesday',
+    time:'11:20 - 12:30',
+    teachername:'MR. Abhay vishwakarma',  
+    image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
+  },
+  {
+    title:'Java learning',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 67',
+    date:'11/05/2025',
+    day:'wednesday',
+    time:'10:20 - 12:10',
+    teachername:'MR. Surya gupta',  
+    image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
+  },
+  {
+    title:'Web pogramming',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 87',
+    date:'12/04/2025',
+    day:'Tuesday',
+    time:'11:20 - 12:30',
+    teachername:'MR. Abhay vishwakarma',  
+    image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
+  },
 ]
   return (
     <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-2'>
@@ -159,8 +239,8 @@ function Timeline_new_students() {
                 <div className='w-10 h-10 rounded-md'><img src={items.image}  className='w-full h-full object-cover rounded-full'/></div>
                 <div className=' w-fit h-full flex flex-col gap-0.5 px-1'>
                   <h1 className='text-lg font-medium leading-5'>{items.title}</h1>
-                  <p className='text-xs leading-4'>{items.teachername}</p>
-                  <p className='text-xs leading-4'>{items.collage}</p>
+                  <p className='text-xs leading-4 opacity-60'>{items.teachername}</p>
+                  <p className='text-xs leading-4 opacity-60'>{items.collage}</p>
                 </div>
               </div>
                 <div className='w-fit p-1 rounded-md text-xs font-medium'>{items.day}</div>
@@ -169,18 +249,18 @@ function Timeline_new_students() {
           ))}
         </div>
       </div>
-      {seeall && <div className='w-full h-full absolute top-0 left-0'>
+      {seeall && <div className='w-full h-full bg-zinc-200 absolute top-0 left-0 p-3'>
           <div onClick={() => setall(prev => !prev)} className='absolute z-50 top-2 right-2 size-7 bg-zinc-200 hover:bg-zinc-300 transition-all duration-300 cursor-pointer flex items-center justify-center rounded-full border border-zinc-300'><i className='ri-close-line'></i></div>
-        <div className='w-full h-full relative bg-zinc-200 pt-13 overflow-auto'>
-          <div className='w-full h-full '>
+        <div className='w-full h-full relative pt-3 overflow-auto'>
+          <div className='w-full h-full px-5'>
             {testData.map((items, index)=> (
             <NavLink to={``} className='p-2 rounded-md gap-2 w-full bg-zinc-200/80 hover:bg-zinc-300/40 flex items-center justify-between'>
               <div className='w-fit  flex items-center gap-2'>
                 <div className='w-10 h-10 rounded-md'><img src={items.image}  className='w-full h-full object-cover rounded-full'/></div>
                 <div className=' w-fit h-full flex flex-col gap-0.5 px-1'>
                   <h1 className='text-lg font-medium leading-5'>{items.title}</h1>
-                  <p className='text-xs leading-4'>{items.teachername}</p>
-                  <p className='text-xs leading-4'>{items.collage}</p>
+                  <p className='text-xs leading-4 opacity-65'>{items.teachername}</p>
+                  <p className='text-xs leading-4 opacity-65'>{items.collage}</p>
                 </div>
               </div>
                 <div className='w-fit p-1 rounded-md text-xs font-medium'>{items.day}</div>
