@@ -47,14 +47,14 @@ const TimelineGraphforcollage = () => {
         <div className="w-full h-fit rounded-lg ">
             {graphData.length > 0 ? (
                 <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-center gap-2'>
-                    <div className='w-full h-60 rounded-xl p-2 border border-zinc-300 bg-white hover:bg-zinc-200 transition-all duration-300 cursor-pointer'>
+                    <div className='w-full h-60 rounded-xl p-2 bg-white hover:bg-zinc-200 transition-all duration-300 cursor-pointer'>
                         <h2 className='text-sm font-medium'>Student Count by College</h2>
                     <div className='w-full rounded-xl p-2'>
                             
                         <div className='flex flex-col gap-2 rounded-md overflow-auto'>
                             <ul className='flex gap-1'>
                                 {graphData.map((item, index) => (
-                                    <li key={index} className='w-10 h-40 rounded-md flex items-end justify-center bg-white hover:bg-zinc-200 border border-zinc-300 hover:border-zinc-400 transition-all duration-300 cursor-pointer p-2 pt-4'>
+                                    <li key={index} className='w-10 h-40 rounded-md flex items-end justify-center bg-white hover:bg-zinc-200 hover:border-zinc-400 transition-all duration-300 cursor-pointer p-2 pt-4'>
                                         <div className='w-full h-full flex flex-col items-center justify-end overflow-hidden'>
                                             <div className='w-full p-1 relative'>
                                                 <p className='text-nowrap -rotate-90 text-start h-fit text-xs p-1'>{item.collage}</p>
@@ -73,7 +73,7 @@ const TimelineGraphforcollage = () => {
                         </div>
                     </div>
                     </div>
-                    <div className='w-full h-60 grid grid-rows-2 gap-1 border border-zinc-300 p-2 bg-white hover:bg-zinc-200 transition-all duration-300 cursor-pointer rounded-xl'>
+                    <div className='w-full h-60 grid grid-rows-2 gap-1 p-2 bg-white hover:bg-zinc-200 transition-all duration-300 cursor-pointer rounded-xl'>
                         <div className={`w-full h-full flex items-center border-zinc-400 border-b justify-around rounded-md rounded-b-none p-2`}>
                             <h1 className='text-2xl font-medium text-zinc-700'>Statistic Overview</h1>
                             <NavLink to={``} className='size-14 bg-white rounded-full flex items-center justify-center hover:bg-zinc-300 transition-all duration-300 hover:text-zinc-800 text-zinc-600'>
@@ -87,11 +87,11 @@ const TimelineGraphforcollage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-full h-60 rounded-xl p-1 border border-zinc-300 bg-white hover:bg-zinc-200 transition-all duration-300 cursor-pointer'>
+                    <div className='w-full h-60 rounded-xl p-1 bg-white hover:bg-zinc-200 transition-all duration-300 cursor-pointer'>
                         <div className='w-full h-full overflow-auto rounded-md'>
                             <div className='w-fit h-full flex items-center'>
                                 {Student.map((item , index)=>(
-                                    <div className='w-32 h-[75%] rounded-xl ml-3 bg-white border border-zinc-300 p-2 flex flex-col gap-2 items-center justify-start'>
+                                    <div className='w-32 h-[75%] rounded-xl ml-3 bg-white p-2 flex flex-col gap-2 items-center justify-start'>
                                         <div className='size-16 bg-white border border-zinc-400 rounded-full flex items-center justify-center'>
                                             <i className='ri-user-line text-3xl font-medium'></i>
                                         </div>

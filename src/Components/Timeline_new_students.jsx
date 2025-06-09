@@ -250,7 +250,7 @@ function Timeline_new_students() {
         </div>
       </div>
       {seeall && <div className='w-full h-full bg-zinc-200 absolute top-0 left-0 p-3'>
-          <div onClick={() => setall(prev => !prev)} className='absolute z-50 top-2 right-2 size-7 bg-zinc-200 hover:bg-zinc-300 transition-all duration-300 cursor-pointer flex items-center justify-center rounded-full border border-zinc-300'><i className='ri-close-line'></i></div>
+          <div onClick={() => setall(prev => !prev)} className='absolute z-50 top-2 right-2 size-8 bg-zinc-200 hover:bg-zinc-900 hover:text-zinc-100 hover:scale-125 transition-all duration-300 cursor-pointer flex items-center justify-center rounded-md border border-zinc-300'><i className='ri-close-line'></i></div>
         <div className='w-full h-full relative pt-3 overflow-auto'>
           <div className='w-full h-full px-5'>
             {testData.map((items, index)=> (
