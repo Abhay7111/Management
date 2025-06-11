@@ -226,14 +226,14 @@ function Timeline_new_students() {
   },
 ]
   return (
-    <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-2'>
-      <div className='w-full h-fit rounded-lg bg-transparent flex flex-col items-center justify-start gap-2 hover:bg-zinc-50 transition-all duration-300'>
+    <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-2 '>
+      <div className='w-full h-fit rounded-lg bg-transparent flex flex-col items-center justify-start gap-2 hover:bg-zinc-50 border border-zinc-300 p-2 transition-all duration-300'>
         <div className='w-full flex items-center justify-between'>
           <h3 className='text-base font-medium'>Timeline</h3>
           <div onClick={()=>setall(true)} className=' cursor-pointer text-xs font-medium hover:text-blue-500'>See All</div>
         </div>
         <div className='w-full h-full rounded-lg flex flex-col items-center justify-start gap-0.5'>
-          {testData.slice(0,5).map((items, index)=> (
+          {testData.slice(2,7).map((items, index)=> (
             <NavLink to={``} className='p-2 rounded-md gap-2 w-full bg-zinc-200/80 hover:bg-zinc-300/40 flex items-center justify-between'>
               <div className='w-fit  flex items-center gap-2'>
                 <div className='w-10 h-10 rounded-md'><img src={items.image}  className='w-full h-full object-cover rounded-full'/></div>
@@ -249,12 +249,12 @@ function Timeline_new_students() {
           ))}
         </div>
       </div>
-      {seeall && <div className='w-full h-full bg-zinc-200 absolute top-0 left-0 p-3'>
+      {seeall && <div className='w-full h-full bg-zinc-300/90 absolute top-0 left-0 p-10 backdrop-blur-[5px] z-50'>
           <div onClick={() => setall(prev => !prev)} className='absolute z-50 top-2 right-2 size-8 bg-zinc-200 hover:bg-zinc-900 hover:text-zinc-100 hover:scale-125 transition-all duration-300 cursor-pointer flex items-center justify-center rounded-md border border-zinc-300'><i className='ri-close-line'></i></div>
         <div className='w-full h-full relative pt-3 overflow-auto'>
-          <div className='w-full h-full px-5'>
+          <div className='w-full h-full px-5 flex flex-col gap-2'>
             {testData.map((items, index)=> (
-            <NavLink to={``} className='p-2 rounded-md gap-2 w-full bg-zinc-200/80 hover:bg-zinc-300/40 flex items-center justify-between'>
+            <NavLink to={``} className='p-2 rounded-md gap-2 w-full bg-zinc-200/80 hover:bg-zinc-300/10 flex items-center justify-between'>
               <div className='w-fit  flex items-center gap-2'>
                 <div className='w-10 h-10 rounded-md'><img src={items.image}  className='w-full h-full object-cover rounded-full'/></div>
                 <div className=' w-fit h-full flex flex-col gap-0.5 px-1'>
