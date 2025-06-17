@@ -11,7 +11,8 @@ function Timeline_new_students() {
     date:'11/05/2025',
     day:'wednesday',
     time:'10:20 - 12:10',
-    teachername:'MR. Surya gupta',  
+    teachername:'MR. Surya gupta',
+    Stampcolor:'text-yellow-800',
     image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
   },
     {
@@ -22,6 +23,7 @@ function Timeline_new_students() {
     day:'Tuesday',
     time:'11:20 - 12:30',
     teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
     image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
   },
     {
@@ -32,19 +34,10 @@ function Timeline_new_students() {
     day:'wednesday',
     time:'10:20 - 12:10',
     teachername:'MR. Surya gupta',  
+    Stampcolor:'text-red-600',
     image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
   },
     {
-    title:'CCC',
-    collage:'Jagran collage of eduction, kanpur',
-    roomno:'Room 28',
-    date:'24/02/2025',
-    day:'Tuesday',
-    time:'11:40 - 12:50',
-    teachername:'MR. Abhay vishwakarma', 
-    image:'https://cdn.dribbble.com/users/16292774/avatars/normal/data?1684478653', 
-  },
-  {
     title:'Web pogramming',
     collage:'Jagran collage of eduction, kanpur',
     roomno:'Room 87',
@@ -52,26 +45,7 @@ function Timeline_new_students() {
     day:'Tuesday',
     time:'11:20 - 12:30',
     teachername:'MR. Abhay vishwakarma',  
-    image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
-  },
-  {
-    title:'Java learning',
-    collage:'Jagran collage of eduction, kanpur',
-    roomno:'Room 67',
-    date:'11/05/2025',
-    day:'wednesday',
-    time:'10:20 - 12:10',
-    teachername:'MR. Surya gupta',  
-    image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
-  },
-  {
-    title:'Web pogramming',
-    collage:'Jagran collage of eduction, kanpur',
-    roomno:'Room 87',
-    date:'12/04/2025',
-    day:'Tuesday',
-    time:'11:20 - 12:30',
-    teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
     image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
   },
     {
@@ -81,7 +55,8 @@ function Timeline_new_students() {
     date:'11/05/2025',
     day:'wednesday',
     time:'10:20 - 12:10',
-    teachername:'MR. Surya gupta',  
+    teachername:'MR. Surya gupta',
+    Stampcolor:'text-yellow-800',
     image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
   },
     {
@@ -92,6 +67,18 @@ function Timeline_new_students() {
     day:'Tuesday',
     time:'11:20 - 12:30',
     teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
+    image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
+  },
+    {
+    title:'Web pogramming',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 87',
+    date:'12/04/2025',
+    day:'Tuesday',
+    time:'11:20 - 12:30',
+    teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
     image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
   },
     {
@@ -102,19 +89,10 @@ function Timeline_new_students() {
     day:'wednesday',
     time:'10:20 - 12:10',
     teachername:'MR. Surya gupta',  
+    Stampcolor:'text-red-600',
     image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
   },
     {
-    title:'CCC',
-    collage:'Jagran collage of eduction, kanpur',
-    roomno:'Room 28',
-    date:'24/02/2025',
-    day:'Tuesday',
-    time:'11:40 - 12:50',
-    teachername:'MR. Abhay vishwakarma', 
-    image:'https://cdn.dribbble.com/users/16292774/avatars/normal/data?1684478653', 
-  },
-  {
     title:'Web pogramming',
     collage:'Jagran collage of eduction, kanpur',
     roomno:'Room 87',
@@ -122,19 +100,21 @@ function Timeline_new_students() {
     day:'Tuesday',
     time:'11:20 - 12:30',
     teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
     image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
   },
-  {
+    {
     title:'Java learning',
     collage:'Jagran collage of eduction, kanpur',
     roomno:'Room 67',
     date:'11/05/2025',
     day:'wednesday',
     time:'10:20 - 12:10',
-    teachername:'MR. Surya gupta',  
+    teachername:'MR. Surya gupta',
+    Stampcolor:'text-yellow-800',
     image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
   },
-  {
+    {
     title:'Web pogramming',
     collage:'Jagran collage of eduction, kanpur',
     roomno:'Room 87',
@@ -142,16 +122,7 @@ function Timeline_new_students() {
     day:'Tuesday',
     time:'11:20 - 12:30',
     teachername:'MR. Abhay vishwakarma',  
-    image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
-  },
-  {
-    title:'Web pogramming',
-    collage:'Jagran collage of eduction, kanpur',
-    roomno:'Room 87',
-    date:'12/04/2025',
-    day:'Tuesday',
-    time:'11:20 - 12:30',
-    teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
     image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
   },
     {
@@ -162,6 +133,7 @@ function Timeline_new_students() {
     day:'wednesday',
     time:'10:20 - 12:10',
     teachername:'MR. Surya gupta',  
+    Stampcolor:'text-red-600',
     image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
   },
     {
@@ -172,6 +144,7 @@ function Timeline_new_students() {
     day:'Tuesday',
     time:'11:20 - 12:30',
     teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
     image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
   },
     {
@@ -182,19 +155,10 @@ function Timeline_new_students() {
     day:'wednesday',
     time:'10:20 - 12:10',
     teachername:'MR. Surya gupta',  
+    Stampcolor:'text-red-600',
     image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
   },
     {
-    title:'CCC',
-    collage:'Jagran collage of eduction, kanpur',
-    roomno:'Room 28',
-    date:'24/02/2025',
-    day:'Tuesday',
-    time:'11:40 - 12:50',
-    teachername:'MR. Abhay vishwakarma', 
-    image:'https://cdn.dribbble.com/users/16292774/avatars/normal/data?1684478653', 
-  },
-  {
     title:'Web pogramming',
     collage:'Jagran collage of eduction, kanpur',
     roomno:'Room 87',
@@ -202,9 +166,10 @@ function Timeline_new_students() {
     day:'Tuesday',
     time:'11:20 - 12:30',
     teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
     image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
   },
-  {
+    {
     title:'Java learning',
     collage:'Jagran collage of eduction, kanpur',
     roomno:'Room 67',
@@ -212,9 +177,10 @@ function Timeline_new_students() {
     day:'wednesday',
     time:'10:20 - 12:10',
     teachername:'MR. Surya gupta',  
+    Stampcolor:'text-red-600',
     image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
   },
-  {
+    {
     title:'Web pogramming',
     collage:'Jagran collage of eduction, kanpur',
     roomno:'Room 87',
@@ -222,18 +188,88 @@ function Timeline_new_students() {
     day:'Tuesday',
     time:'11:20 - 12:30',
     teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
     image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
   },
+    {
+    title:'Java learning',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 67',
+    date:'11/05/2025',
+    day:'wednesday',
+    time:'10:20 - 12:10',
+    teachername:'MR. Surya gupta',
+    Stampcolor:'text-yellow-800',
+    image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
+  },
+    {
+    title:'Web pogramming',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 87',
+    date:'12/04/2025',
+    day:'Tuesday',
+    time:'11:20 - 12:30',
+    teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
+    image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
+  },
+    {
+    title:'Java learning',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 67',
+    date:'11/05/2025',
+    day:'wednesday',
+    time:'10:20 - 12:10',
+    teachername:'MR. Surya gupta',  
+    Stampcolor:'text-red-600',
+    image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
+  },
+    {
+    title:'Web pogramming',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 87',
+    date:'12/04/2025',
+    day:'Tuesday',
+    time:'11:20 - 12:30',
+    teachername:'MR. Abhay vishwakarma',  
+    Stampcolor:'text-blue-600',
+    image:'https://cdn.dribbble.com/userupload/43511036/file/original-f9677621276334220b50874aac317d48.png?resize=1024x768&vertical=center',
+  },
+    {
+    title:'Java learning',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 67',
+    date:'11/05/2025',
+    day:'wednesday',
+    time:'10:20 - 12:10',
+    teachername:'MR. Surya gupta',  
+    Stampcolor:'text-red-600',
+    image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
+  },
+   
 ]
+  const Atendence = [
+    {
+    Studentname:'Abhay',
+    collage:'Jagran collage of eduction, kanpur',
+    roomno:'Room 67',
+    date:'14/05/2025',
+    day:'saterday',
+    time:'9:05',
+    ClassTeacher:'MR. Surya gupta',
+    Present:false,
+    image:'https://cdn.dribbble.com/users/19069224/avatars/normal/6c2321f33862f01c505f59f5945016b0.png?1748446531',
+  },
+  ] 
   return (
     <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-2 '>
       <div className='w-full h-fit rounded-lg bg-transparent flex flex-col items-center justify-start gap-2 hover:bg-zinc-50 border border-zinc-300 p-2 transition-all duration-300'>
         <div className='w-full flex items-center justify-between'>
-          <h3 className='text-base font-medium'>Timeline</h3>
+          <h3 className='text-base font-medium'>Time Stamp</h3>
           <div onClick={()=>setall(true)} className=' cursor-pointer text-xs font-medium hover:text-blue-500'>See All</div>
         </div>
         <div className='w-full h-full rounded-lg flex flex-col items-center justify-start gap-0.5'>
-          {testData.slice(2,7).map((items, index)=> (
+          {testData.slice(0,5).map((items, index)=> (
             <NavLink to={``} className='p-2 rounded-md gap-2 w-full bg-zinc-200/80 hover:bg-zinc-300/40 flex items-center justify-between'>
               <div className='w-fit  flex items-center gap-2'>
                 <div className='w-10 h-10 rounded-md'><img src={items.image}  className='w-full h-full object-cover rounded-full'/></div>
@@ -243,8 +279,31 @@ function Timeline_new_students() {
                   <p className='text-xs leading-4 opacity-60'>{items.collage}</p>
                 </div>
               </div>
-                <div className='w-fit p-1 rounded-md text-xs font-medium'>{items.day}</div>
-              <div className={` w-fit h-5 border border-zinc-300 text-[0.64rem] text-nowrap p-0.5 px-1 font-semibold rounded-sm `}><p className='timeline'>{items.roomno}</p></div>
+                <div className='w-fit p-1 rounded-md text-xs font-medium flex items-center justify-center gap-3'>{items.day} <span>{items.time}</span></div>
+              <div className={` w-fit h-5 border border-zinc-300 text-[0.64rem] text-nowrap p-0.5 px-1 font-semibold rounded-sm `}><p className={`timeline ${items.Stampcolor} `}>{items.roomno}</p></div>
+            </NavLink>
+          ))}
+        </div>
+      </div>
+      <div className='w-full h-fit rounded-lg bg-transparent flex flex-col items-center justify-start gap-2 hover:bg-zinc-50 border border-zinc-300 p-2 transition-all duration-300'>
+        <div className='w-full flex items-center justify-between'>
+          <h3 className='text-base font-medium'>Time Stamp</h3>
+          <div onClick={()=>setall(true)} className=' cursor-pointer text-xs font-medium hover:text-blue-500'>See All</div>
+        </div>
+        <div className='w-full h-full rounded-lg flex flex-col items-center justify-start gap-0.5'>
+          {Atendence.map((items, index) => (
+            <NavLink to={``} className='p-2 rounded-md gap-2 w-full bg-zinc-200/80 hover:bg-zinc-300/40 flex items-center justify-between'>
+              <div className='w-fit  flex items-center gap-2'>
+                <div className='w-10 h-10 rounded-md'><img src={items.image}  className='w-full h-full object-cover rounded-full'/></div>
+                <div className=' w-fit h-full flex flex-col gap-0.5 px-1'>
+                  <h1 className='text-lg font-medium leading-5'>{items.Studentname}</h1>
+                  <p className='text-xs leading-4 opacity-60'>{items.ClassTeacher}</p>
+                  <p className='text-xs leading-4 opacity-60'>{items.collage}</p>
+                </div>
+              </div>
+                <div className='w-fit p-1 rounded-md text-xs font-medium flex items-center justify-center gap-3'>{items.day} <span>{items.time}</span></div>
+                <div className='w-fit p-1 rounded-md text-xs font-medium flex items-center justify-center gap-3'>{items.Present && (<p>Present</p>)}{!items.Present && (<p>Absent</p>)}</div>
+              <div className={` w-fit h-5 border border-zinc-300 text-[0.64rem] text-nowrap p-0.5 px-1 font-semibold rounded-sm `}><p className={`timeline ${items.Stampcolor} `}>{items.roomno}</p></div>
             </NavLink>
           ))}
         </div>
@@ -263,8 +322,9 @@ function Timeline_new_students() {
                   <p className='text-xs leading-4 opacity-65'>{items.collage}</p>
                 </div>
               </div>
-                <div className='w-fit p-1 rounded-md text-xs font-medium'>{items.day}</div>
-              <div className={` w-fit h-5 border border-zinc-300 text-[0.64rem] text-nowrap p-0.5 px-1 font-semibold rounded-sm `}><p className='timeline'>{items.roomno}</p></div>
+                <div className='w-fit p-1 rounded-md text-xs font-medium'>{items.day} </div>
+                <div className='w-fit p-1 rounded-md text-xs font-medium'>{items.date} </div>
+              <div className={` w-fit h-5 border border-zinc-300 text-[0.64rem] text-nowrap p-0.5 px-1 font-semibold rounded-sm `}><p className={`timeline ${items.Stampcolor}`}>{items.roomno}</p></div>
             </NavLink>
           ))}
           </div>

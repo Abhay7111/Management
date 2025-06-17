@@ -49,11 +49,15 @@ const TimelineGraphforcollage = () => {
             <div className='z-10 relative'>
                 {graphData.length > 0 ? (
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 xl:grid-cols-7 2xl:grid-cols-8 items-center gap-2'>
-                    <div className='w-full h-28 rounded-xl p-2 bg-white hover:bg-zinc-200 transition-all duration-300 cursor-pointer'>
-                        {graphData.length}
+                    <div className='w-full h-16 rounded-xl p-2 bg-white hover:bg-zinc-300 transition-all duration-300 cursor-pointer'>
+                        <div className='w-full h-full flex flex-col gap-2 justify-around'>
+                        <p className='text-2xl font-medium p-2 flex items-center justify-start gap-2'><span>{graphData.length}</span> <span className='text-sm font-normal'>Total collages</span></p>
+                        </div>
                     </div>
-                    <div className='w-full h-28 grid grid-rows-2 gap-1 p-2 bg-white hover:bg-zinc-200 transition-all duration-300 cursor-pointer rounded-xl'>
-                        
+                    <div className='w-full h-full gap-1 p-2 bg-white hover:bg-zinc-300 transition-all duration-300 cursor-pointer rounded-xl'>
+                        <div className='w-full h-full flex items-center justify-start gap-2'>
+                            <span><p className='text-2xl font-medium'>{Student.length}</p></span> <span><p className='text-sm'>Total students</p></span>
+                        </div>
                     </div>
                 </div>
             ) : (

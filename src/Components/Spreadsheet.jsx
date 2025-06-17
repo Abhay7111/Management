@@ -63,7 +63,7 @@ function Spreadsheet() {
         return {
           Name: `${name.firstname || ''} ${name.lastname || ''}`.trim(),
           College: item.collagename || '',
-          Phone: student.phone ? `+91 ${student.phone}` : '',
+          Phone: student.phone ? `+91${student.phone}` : '',
           Email: student.gmail || '',
           Rank: student.rank || '',
           Marks: student.marks || ''
@@ -95,20 +95,32 @@ function Spreadsheet() {
 
   return (
     <div className='w-full min-h-40 max-h-[100vh] flex flex-col items-start justify-start gap-2 relative'>
-      {openOutlet && 
+      {openOutlet && (
         <div className='fixed top-0 left-0 w-full h-dvh z-50 border border-zinc-400 backdrop-blur-sm bg-zinc-50'>
           <div className='w-full h-full relative flex flex-col items-center gap-2 p-2'>
-            <div className='w-full flex items-center justify-end'><NavLink to={`./`} onClick={()=>setOpenOutlet(false)} className='size-8 rounded-md flex items-center justify-center text-sm cursor-pointer border border-zinc-400 bg-zinc-100 hover:bg-zinc-300 transition-all ri-close-line font-medium'></NavLink></div>
-            <div className='w-full h-full flex items-center justify-center'><Outlet/></div>
+            <div className='w-full flex items-center justify-end'>
+              <NavLink 
+                to={`./`} 
+                onClick={() => setOpenOutlet(false)}
+                className='size-8 rounded-md flex items-center justify-center text-sm cursor-pointer border border-zinc-400 bg-zinc-100 hover:bg-zinc-300 transition-all ri-close-line font-medium'
+              />
+            </div>
+            <div className='w-full h-full flex items-center justify-center'>
+              <Outlet/>
+            </div>
           </div>
         </div>
-      }
-      <div className='flex items-center h-20 justify-start gap-1 text-sm w-full'>
+      )}
+
+      <div className='flex flex-wrap items-center h-fit justify-start gap-2 text-sm w-full px-2'>
         <div className='flex items-center gap-1 text-red-700 bg-red-200 px-2 py-1 border border-red-300 rounded-md'>
           <i className='ri-loader-4-line animate-spin'></i>
           <p>In progress</p>
         </div>
-        <div title='Total collages' className='size-7 rounded-md border border-zinc-300 flex items-center justify-center bg-zinc-200'>
+        <div 
+          title='Total students' 
+          className='size-7 rounded-md border border-zinc-300 flex items-center justify-center bg-zinc-200'
+        >
           {Student.length}
         </div>
         <button 
@@ -131,37 +143,71 @@ function Spreadsheet() {
         </div>
       </div>
 
-      <div className='w-full h-fit overflow-auto relative flex items-start justify-center gap-2'>
-        <div className='w-[80vw] grid grid-cols-6 gap-0 border border-t-0 border-b-0 border-zinc-400 relative'>
-          {['Name', 'College', 'Collage address', 'Phone', 'Email', 'Rank / Marks'].map((header, index) => (
-            <div key={index} className='bg-gray-200 p-2 font-medium sticky top-0 border-b border-t border-zinc-400'>{header}</div>
-          ))}
-          {Student.map((item, index) => (
-            <React.Fragment key={index}>
+      <div className='w-full h-fit overflow-auto relative flex flex-col lg:flex-row items-start justify-center gap-2 px-2'>
+        <div className='w-full overflow-x-auto'>
+          <div className='min-w-[600px] grid grid-cols-7 gap-0 border border-t-0 border-b-0 border-zinc-400'>
+            {['#', 'Name', 'College', 'College address', 'Phone', 'Email', 'Rank / Marks'].map((header, index) => (
               <div 
-                className='p-2 border-b border-zinc-400 cursor-pointer hover:bg-gray-100 line-clamp-1'
-                onClick={() => handleStudentClick(item)}
+                key={index} 
+                className='bg-gray-200 p-2 font-medium sticky top-0 border-b border-t border-zinc-400'
               >
-                {item.students.name.firstname}
+                {header}
               </div>
-              <div className='p-2 border-b border-r border-l border-zinc-400 line-clamp-1 overflow-auto w-full'><span className='w-fit text-nowrap'>{item.collagename}</span></div>
-              <div className='w-full overflow-auto p-2 border-r border-zinc-400 border-b'><span className='text-nowrap'>{item.collageaddress}</span></div>
-              <Link to={`tel:${item.students.phone}`} className='p-2 border-b border-r border-zinc-400 line-clamp-1 '>+91 {item.students.phone}</Link>
-              <Link to={`mailto:${item.students.gmail}`} className='p-2 border-b border-r border-zinc-400 line-clamp-1 overflow-auto'><span className='w-fit text-nowrap'>{item.students.gmail}</span></Link>
-              <div className=' border-b border-zinc-400 flex'><div className='w-24 p-2 border-r border-zinc-400'>{item.students.rank}</div> <div className='w-full p-2'>{item.students.marks}  </div></div>
-              
-            </React.Fragment>
-          ))}
+            ))}
+            {Student.map((item, index) => (
+              <React.Fragment key={index}>
+                <div className='p-2 border-b border-r border-l border-zinc-400 line-clamp-1'>
+                  <span className='text-nowrap'>{index + 1}.</span>
+                </div>
+                <div 
+                  className='p-2 border-b border-zinc-400 cursor-pointer hover:bg-gray-100 line-clamp-1'
+                  onClick={() => handleStudentClick(item)}
+                >
+                  {item.students?.name?.firstname || 'N/A'}
+                </div>
+                <div className='p-2 border-b border-r border-zinc-400 line-clamp-1'>
+                  <span className='text-nowrap'>{item.collagename || 'N/A'}</span>
+                </div>
+                <div className='p-2 border-b border-r border-zinc-400 line-clamp-1'>
+                  <span className='text-nowrap'>{item.collageaddress || 'N/A'}</span>
+                </div>
+                <Link 
+                  to={`tel:${item.students?.phone}`} 
+                  className='p-2 border-b border-r border-zinc-400 line-clamp-1'
+                >
+                  <span className='text-nowrap'>+91 {item.students?.phone || 'N/A'}</span>
+                </Link>
+                <Link 
+                  to={`mailto:${item.students?.gmail}`} 
+                  className='p-2 border-b border-r border-zinc-400 line-clamp-1'
+                >
+                  <span className='text-nowrap'>{item.students?.gmail || 'N/A'}</span>
+                </Link>
+                <div className='border-b border-zinc-400 flex'>
+                  <div className='w-24 p-2 border-r border-zinc-400'>{item.students?.rank || 'N/A'}</div>
+                  <div className='w-full p-2'>{item.students?.marks || 'N/A'}</div>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
         
-        <div className='w-0 md:w-80 h-full sticky top-0 overflow-auto '>
+        <div className='w-full lg:w-80 h-full sticky top-0 overflow-auto'>
           <div className='sticky transition-all border border-zinc-400 p-2.5 bg-white shadow-sm'>
             {selectedStudent ? (
               <div ref={componentRef} className='w-full h-full space-y-3'>
                 <h3 className='font-semibold mb-3 text-lg border-b border-zinc-300 pb-2 text-gray-700 flex items-center justify-between'>
                   <span>Student Details</span>
                   <span className='flex items-center gap-2'>
-                    <div className='flex items-center'><NavLink to={`edit/${selectedStudent._id}`} onClick={()=>setOpenOutlet(prev => !prev)} className={`text-sm font-medium hover:text-blue-600 transition-all`}>Edit</NavLink></div>
+                    <div className='flex items-center'>
+                      <NavLink 
+                        to={`edit/${selectedStudent._id}`} 
+                        onClick={() => setOpenOutlet(prev => !prev)} 
+                        className='text-sm font-medium hover:text-blue-600 transition-all'
+                      >
+                        Edit
+                      </NavLink>
+                    </div>
                     <button 
                       onClick={() => setOpenProfile(prev => !prev)}
                       className='size-5.5 rounded border border-zinc-300 hover:bg-zinc-300 flex items-center justify-center cursor-pointer'
@@ -173,22 +219,47 @@ function Spreadsheet() {
                 </h3>
                 
                 <div className='space-y-2.5'>
-                  <DetailItem label="Name" value={<NavLink to={`./${selectedStudent.students.name.firstname}-${selectedStudent.students.name.lastname}`}>{selectedStudent.students.name.firstname} {selectedStudent.students.name.lastname}</NavLink>} />
+                  <DetailItem 
+                    label="Name" 
+                    value={
+                      <NavLink to={`./${selectedStudent.students?.name?.firstname}-${selectedStudent.students?.name?.lastname}`}>
+                        {selectedStudent.students?.name?.firstname || 'N/A'} {selectedStudent.students?.name?.lastname || ''}
+                      </NavLink>
+                    } 
+                  />
                   
                   {!openProfile && (
                     <>
-                      <DetailItem label="Father's name" value={selectedStudent.students.fathername} />
-                      <DetailItem label="Mother's name" value={selectedStudent.students.mothername} />
+                      <DetailItem label="Father's name" value={selectedStudent.students?.fathername || 'N/A'} />
+                      <DetailItem label="Mother's name" value={selectedStudent.students?.mothername || 'N/A'} />
                     </>
                   )}
                   
-                  <DetailItem label="College" value={`${selectedStudent.collagename}, ${selectedStudent.collageaddress}`} />
-                  <DetailItem label="Phone" value={<NavLink to={`tel:${selectedStudent.students.phone}`}>+91 {selectedStudent.students.phone}</NavLink>} />
-                  <DetailItem label="Email" value={<NavLink to={`mailto:${selectedStudent.students.gmail}`}>{selectedStudent.students.gmail}</NavLink>} breakAll />
+                  <DetailItem 
+                    label="College" 
+                    value={`${selectedStudent.collagename || 'N/A'}, ${selectedStudent.collageaddress || 'N/A'}`} 
+                  />
+                  <DetailItem 
+                    label="Phone" 
+                    value={
+                      <NavLink to={`tel:${selectedStudent.students?.phone}`} className='text-nowrap'>
+                        <span>+91 {selectedStudent.students?.phone || 'N/A'}</span>
+                      </NavLink>
+                    } 
+                  />
+                  <DetailItem 
+                    label="Email" 
+                    value={
+                      <NavLink to={`mailto:${selectedStudent.students?.gmail}`} className='text-nowrap'>
+                        {selectedStudent.students?.gmail || 'N/A'}
+                      </NavLink>
+                    } 
+                    breakAll 
+                  />
                   
                   <div className='w-full h-fit flex items-center justify-start gap-2.5'>
-                    <DetailItem label="Rank" value={selectedStudent.students.rank} />
-                    <DetailItem label="Marks" value={selectedStudent.students.marks} />
+                    <DetailItem label="Rank" value={selectedStudent.students?.rank || 'N/A'} />
+                    <DetailItem label="Marks" value={selectedStudent.students?.marks || 'N/A'} />
                   </div>
                 </div>
               </div>
