@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Students } from '../Data/Students';
 import axios from 'axios';
+import Loader from '../Components/Loading';
 
 function EditStudents() {
   const { id } = useParams();
@@ -113,7 +114,7 @@ function EditStudents() {
     }
   };
 
-  if (Loading) return <div>Loading...</div>;
+  if (Loading) return <div><Loader/></div>;
   if (Error) return <div>Error: {Error.message}</div>;
 
   return (
