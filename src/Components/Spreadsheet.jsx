@@ -72,6 +72,7 @@ function Spreadsheet() {
         return {
           Name: `${name.firstname || ''} ${name.lastname || ''}`.trim(),
           College: item.collagename || '',
+          'College Address': item.collageaddress || '',
           Phone: student.phone ? `+91${student.phone}` : '',
           Email: student.gmail || '',
           Rank: student.rank || '',
