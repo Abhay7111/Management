@@ -135,13 +135,13 @@ function Spreadsheet() {
           <i className='ri-file-excel-line'></i>
         </button>
         <div className='w-fit flex items-center justify-start gap-2'>
-          <button 
-            onClick={() => setManagerForm(prev => !prev)} 
+          <NavLink
+          to={'../new unicity'} 
             className='size-7 rounded-md border border-zinc-300 flex items-center justify-center cursor-pointer hover:bg-zinc-950 hover:text-white transition-colors duration-300'
             aria-label="Add new item"
           >
             <i className='ri-add-line text-xl font-medium'></i>
-          </button>
+          </NavLink>
           <div className='size-7 hover:bg-zinc-900 hover:text-white transition-all duration-300 border border-zinc-300 flex items-center justify-center cursor-pointer p-1 rounded'>
             <i className='ri-more-line'></i>
           </div>

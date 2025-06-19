@@ -49,14 +49,28 @@ const TimelineGraphforcollage = () => {
             <div className='z-10 relative'>
                 {graphData.length > 0 ? (
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 xl:grid-cols-7 2xl:grid-cols-8 items-center gap-2'>
-                    <div className='w-full h-16 rounded-xl p-2 bg-white hover:bg-zinc-300 transition-all duration-300 cursor-pointer'>
-                        <div className='w-full h-full flex flex-col gap-2 justify-around'>
-                        <p className='text-2xl font-medium p-2 flex items-center justify-start gap-2'><span>{graphData.length}</span> <span className='text-sm font-normal'>Total collages</span></p>
+                    <div className='w-full h-32 rounded-xl p-2 bg-white hover:bg-zinc-300 transition-all duration-300 cursor-pointer'>
+                        <div className='w-full h-full flex flex-col gap-2 justify-between'>
+                        <span className='w-full flex items-center justify-between gap-1'>
+                            <p>Total collages</p>
+                            <NavLink to={'../collages'} className='size-9 flex items-center justify-center rounded-full bg-zinc-200 border border-zinc-300 hover:border-zinc-400'><i className='ri-arrow-right-up-line'></i></NavLink>
+                        </span>
+                        <span className='flex flex-col items-start justify-between gap-0.5'>
+                            <p className='text-3xl font-medium'>{graphData.length}</p>
+                            <p className='text-green-600 text-[0.65rem]'><span className='pr-1 border  rounded border-green-400 '><i className='ri-arrow-up-s-fill text-sm'></i>{graphData.length-16}</span><span className=' ml-1'>Increased from last year</span></p>
+                        </span>
                         </div>
                     </div>
-                    <div className='w-full h-full gap-1 p-2 bg-white hover:bg-zinc-300 transition-all duration-300 cursor-pointer rounded-xl'>
-                        <div className='w-full h-full flex items-center justify-start gap-2'>
-                            <span><p className='text-2xl font-medium'>{Student.length}</p></span> <span><p className='text-sm'>Total students</p></span>
+                    <div className='w-full h-32 rounded-xl p-2 bg-white hover:bg-zinc-300 transition-all duration-300 cursor-pointer'>
+                        <div className='w-full h-full flex flex-col gap-2 justify-between'>
+                        <span className='w-full flex items-center justify-between gap-1'>
+                            <p>Total students</p>
+                            <NavLink to={'../students'} className='size-9 flex items-center justify-center rounded-full bg-zinc-200 border border-zinc-300 hover:border-zinc-400'><i className='ri-arrow-right-up-line'></i></NavLink>
+                        </span>
+                        <span className='flex flex-col items-start justify-between gap-0.5'>
+                            <p className='text-3xl font-medium'>{Student.length}</p>
+                            <p className='text-green-600 text-[0.65rem]'><span className='pr-1 border  rounded border-green-400 '><i className='ri-arrow-up-s-fill text-sm'></i>{Student.length-11}</span><span className=' ml-1'>Increased from last month</span></p>
+                        </span>
                         </div>
                     </div>
                 </div>

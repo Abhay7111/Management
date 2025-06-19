@@ -9,14 +9,16 @@ import Profile from './Components/Profile.jsx';
 import Spreadsheet from './Components/Spreadsheet.jsx';
 import EditStudents from './Forms/EditStudents.jsx';
 import Timeline from './Components/Timeline.jsx';
+import Tasks from './Forms/Tasks.jsx'
 
 const routes = createBrowserRouter([
   {path:'/', element:<Home/>, children:[
     {path:'/', element:'ghg'},
     {path:'dashboard', element:<Dashboard/>, children:[
       {path:'students', element:<Spreadsheet/>, children:[
-        {path:'edit/:id', element:<EditStudents/>}
+        {path:'edit/:id', element:<EditStudents/>},
       ]},
+      {path:'new unicity', element:<Tasks/>},
       {path:'timeline', element:<Timeline/>,},
       {path:'*', element:<Error/>},
     ]},
